@@ -1,0 +1,14 @@
+@startuml
+title Start an activity
+actor Student
+Student --> MobileApp: start an activity
+activate MobileApp
+MobileApp --> WebView: send auth/LO info
+deactivate MobileApp
+WebView --> WebView: render web UI based on comming data 
+activate WebView
+Student --> WebView: do the exam
+Student --> WebView: submit the exam
+WebView --> MobileApp: response success info
+deactivate WebView
+@enduml

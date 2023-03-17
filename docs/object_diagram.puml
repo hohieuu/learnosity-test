@@ -1,0 +1,13 @@
+@startuml
+
+package FlutterMobileApp {
+  object InAppWebView
+}
+package WebApp {
+    object TokenVerifier
+    object LearnosityWebView
+}
+InAppWebView -> TokenVerifier : send access token and activity info
+TokenVerifier -> LearnosityWebView :render Learnosity UI
+
+@enduml
