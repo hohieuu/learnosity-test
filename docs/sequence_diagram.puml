@@ -3,9 +3,13 @@ title Start an activity
 actor Student
 Student --> MobileApp: start an activity
 activate MobileApp
-MobileApp --> WebView: send auth/LO info
+MobileApp --> ManabieServer: sign the request
+activate ManabieServer
+ManabieServer --> MobileApp: response the signed request to client
+deactivate ManabieServer
+MobileApp --> WebView: send signed request
 deactivate MobileApp
-WebView --> WebView: render web UI based on comming data 
+WebView --> WebView: render web UI based on request 
 activate WebView
 Student --> WebView: do the exam
 Student --> WebView: submit the exam
